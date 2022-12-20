@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
-import SignUp from "./SignUp";
+import React, { useEffect, useContext } from "react";
+import SignUp from "./components/SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Hello from "./Hello";
-import Login from "./Login";
+import Hello from "./components/Hello";
+import Login from "./components/Login";
+import { UserContext } from "./context";
 
 function App() {
-  const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
+  const { storedToken } = useContext(UserContext);
+
   useEffect(() => {
     console.log(storedToken);
   }, [storedToken]);
@@ -15,20 +17,11 @@ function App() {
       <Router>
         <Routes>
           {storedToken ? (
-            <Route
-              path="/"
-              element={<Hello setStoredToken={setStoredToken} />}
-            />
+            <Route path="/" element={<Hello />} />
           ) : (
-            <Route
-              path="/"
-              element={<SignUp setStoredToken={setStoredToken} />}
-            />
+            <Route path="/" element={<SignUp />} />
           )}
-          <Route
-            path="/login"
-            element={<Login setStoredToken={setStoredToken} />}
-          />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </div>

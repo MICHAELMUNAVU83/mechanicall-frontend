@@ -1,14 +1,15 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-function Login({ setStoredToken }) {
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../context";
+function SignUp() {
   const [username, setUsername] = useState("");
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setStoredToken } = useContext(UserContext);
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("/api/v1/login", {
+    fetch("/api/v1/users", {
       method: "POST",
       headers: {
         Accepts: "application/json",
@@ -17,23 +18,20 @@ function Login({ setStoredToken }) {
       body: JSON.stringify({
         user: {
           username,
+          email,
           password,
         },
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.jwt) {
-          localStorage.setItem("token", data.jwt);
-          setStoredToken(data.jwt);
-          navigate("/");
-        } else {
-          alert("Invalid credentials");
-        }
+        localStorage.setItem("token", data.jwt);
+        console.log(data);
+        setStoredToken(data.jwt);
       });
 
     setUsername("");
-
+    setEmail("");
     setPassword("");
   };
   return (
@@ -49,7 +47,15 @@ function Login({ setStoredToken }) {
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-
+        <label>
+          Email:
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </label>
         <label>
           Password:
           <input
@@ -61,8 +67,10 @@ function Login({ setStoredToken }) {
         </label>
         <button onClick={handleSubmit}>Submit</button>
       </form>
+      <p>Already have an account?</p>
+      <Link to="/login">Login</Link>
     </div>
   );
 }
 
-export default Login;
+export default SignUp;
