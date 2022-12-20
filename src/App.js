@@ -1,29 +1,43 @@
 import React, { useEffect, useContext } from "react";
 import SignUp from "./components/SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Hello from "./components/Hello";
+import Home from "./components/Home";
 import Login from "./components/Login";
+import AddMechanics from "./components/AddMechanics";
+import FuelStations from "./components/FuelStations";
+import Mechanics from "./components/Mechanics";
 import { UserContext } from "./context";
 
 function App() {
-  const { storedToken } = useContext(UserContext);
+  const { storedToken, fetchProfile, name } = useContext(UserContext);
 
   useEffect(() => {
-    console.log(storedToken);
-  }, [storedToken]);
+    fetchProfile();
+  }, [fetchProfile]);
 
   return (
     <div>
-      <Router>
-        <Routes>
-          {storedToken ? (
-            <Route path="/" element={<Hello />} />
-          ) : (
+      {name}
+      {storedToken ? (
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/fuelstations" element={<FuelStations />} />
+            <Route path="/mechanics" element={<Mechanics />} />
+
+            {name === "admin" && (
+              <Route path="/addmechanics" element={<AddMechanics />} />
+            )}
+          </Routes>
+        </Router>
+      ) : (
+        <Router>
+          <Routes>
             <Route path="/" element={<SignUp />} />
-          )}
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </Router>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </Router>
+      )}
     </div>
   );
 }

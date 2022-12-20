@@ -1,43 +1,13 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { UserContext } from "../context";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const { loginFunction, username, setUsername, password, setPassword } =
+    useContext(UserContext);
   const navigate = useNavigate();
-  const [password, setPassword] = useState("");
-  const { setStoredToken } = useContext(UserContext);
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    fetch("/api/v1/login", {
-      method: "POST",
-      headers: {
-        Accepts: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user: {
-          username,
-          password,
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.jwt) {
-          localStorage.setItem("token", data.jwt);
-          setStoredToken(data.jwt);
-          navigate("/");
-        } else {
-          alert("Invalid credentials");
-        }
-      });
-
-    setUsername("");
-
-    setPassword("");
-  };
   return (
     <div className="App">
       <h1>Create new user</h1>
@@ -61,7 +31,14 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button onClick={handleSubmit}>Submit</button>
+        <button
+          onClick={() => {
+            loginFunction();
+            navigate("/");
+          }}
+        >
+          Login
+        </button>
       </form>
     </div>
   );
