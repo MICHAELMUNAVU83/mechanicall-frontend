@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-
-function Hello({ setStoredToken }) {
+import React, { useEffect, useState , useContext} from "react";
+import { UserContext } from "../context";
+function Hello() {
+  const { setStoredToken } = useContext(UserContext);
   const [name, setName] = useState("");
   useEffect(() => {
     fetch("/api/v1/profile ", {
