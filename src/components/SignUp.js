@@ -1,39 +1,18 @@
-import { useState, useContext } from "react";
+import {  useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context";
 function SignUp() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { setStoredToken } = useContext(UserContext);
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const {
+    
+    email,
+    setEmail,
+    password,
+    setPassword,
+    username,
+    setUsername,
+    signUpFunction,
+  } = useContext(UserContext);
 
-    fetch("/api/v1/users", {
-      method: "POST",
-      headers: {
-        Accepts: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user: {
-          username,
-          email,
-          password,
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        localStorage.setItem("token", data.jwt);
-        console.log(data);
-        setStoredToken(data.jwt);
-      });
-
-    setUsername("");
-    setEmail("");
-    setPassword("");
-  };
   return (
     <div className="App">
       <h1>Create new user</h1>
@@ -65,7 +44,7 @@ function SignUp() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={signUpFunction}>Sign up</button>
       </form>
       <p>Already have an account?</p>
       <Link to="/login">Login</Link>
