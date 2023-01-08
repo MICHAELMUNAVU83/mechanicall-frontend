@@ -1,0 +1,49 @@
+.splash-intro {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1627009295741-c2c3373f82c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTB8WjlpM0FGSXhuYVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  width: 100%;
+  max-width: 250px;
+  margin-bottom: 20px;
+}
+
+.splash-text {
+  padding: 2rem;
+  font-size: 1rem;
+  font-weight: bold !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+  width: 50%;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.splash-button {
+  margin-top: -2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.sign-up {
+  margin-left: -4rem;
+  border-radius: 2rem !important;
+}
+
+.log-in {
+  margin-left: 4rem;
+  border-radius: 2rem !important;
+  padding: 0.45rem 1rem !important;
+}

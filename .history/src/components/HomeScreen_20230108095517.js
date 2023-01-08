@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./HomeScreen.css";
 
 const HomeScreen = () => {
   return (
@@ -9,7 +8,10 @@ const HomeScreen = () => {
       <Link to="/signup">Sign up</Link>
       <div class="container-fluid splash-intro">
         <section class="splash">
-          <div class="splash-image"></div>
+          <div class="splash-image">
+            <img
+            
+          </div>
 
           <div class="splash-text">
             <p>
