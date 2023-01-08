@@ -9,6 +9,8 @@ export function UserProvider({ children }) {
   const [name, setName] = useState("");
   const [countyName, setCountyName] = useState("");
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   const loginFunction = (e) => {
     fetch("/api/v1/login", {
@@ -82,6 +84,8 @@ export function UserProvider({ children }) {
   const showPosition = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
         fetch(
           `https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}+${position.coords.longitude}&key=9b2570bb3d51443da6ba9468a530375b`,
           {
@@ -118,6 +122,8 @@ export function UserProvider({ children }) {
         signUpFunction,
 
         fetchProfile,
+        latitude,
+        longitude,
       }}
     >
       {children}
