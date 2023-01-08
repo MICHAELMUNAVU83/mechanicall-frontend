@@ -3,7 +3,7 @@ import { UserContext } from "../context";
 function FuelStations() {
   const { countyName, showPosition } = useContext(UserContext);
   const [fuelStations, setFuelStations] = useState([]);
-  console.log(fuelStations);
+  console.log()
   useEffect(() => {
     showPosition();
     fetch("/api/v1/fuel_stations", {

@@ -7,7 +7,6 @@ import AddMechanics from "./components/AddMechanics";
 import FuelStations from "./components/FuelStations";
 import Mechanics from "./components/Mechanics";
 import { UserContext } from "./context";
-import HomeScreen from "./components/HomeScreen";
 
 function App() {
   const { storedToken, fetchProfile, name } = useContext(UserContext);
@@ -34,8 +33,7 @@ function App() {
       ) : (
         <Router>
           <Routes>
-            <Route path="/" element={<HomeScreen />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
           </Routes>
         </Router>

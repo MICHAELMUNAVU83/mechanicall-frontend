@@ -3,7 +3,6 @@ import { UserContext } from "../context";
 function FuelStations() {
   const { countyName, showPosition } = useContext(UserContext);
   const [fuelStations, setFuelStations] = useState([]);
-  console.log(fuelStations);
   useEffect(() => {
     showPosition();
     fetch("/api/v1/fuel_stations", {
@@ -26,7 +25,7 @@ function FuelStations() {
             <div key={fuelStation.id}>
               <img src={fuelStation.logo} alt={fuelStation.name} />
               <h3>{fuelStation.name}</h3>
-              <p>{fuelStation.description}</p>
+              
             </div>
           )
       )}

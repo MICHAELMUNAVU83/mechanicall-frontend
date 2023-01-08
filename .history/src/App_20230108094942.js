@@ -35,7 +35,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
-            <Route path="/signup" element={<SignUp />} />
+            
             <Route path="/login" element={<Login />} />
           </Routes>
         </Router>
