@@ -1,5 +1,10 @@
 import React, { useEffect, useContext, useState } from "react";
 import { UserContext } from "../context";
+import { IoIosBuild } from "react-icons/io";
+import { BsCashCoin } from "react-icons/bs";
+import { GiAutoRepair, GiTowTruck } from "react-icons/gi";
+import { FaOilCan } from "react-icons/fa";
+import { BiPhoneCall } from "react-icons/bi";
 import "./Mechanics.css";
 function Mechanics() {
   const { countyName, showPosition } = useContext(UserContext);
@@ -19,6 +24,9 @@ function Mechanics() {
 
   return (
     <>
+      <h1 class="text-center">
+        <IoIosBuild /> Mechanics
+      </h1>
       <div class="container mt-5 mb-3">
         <div class="row">
           {mechanics.map(
@@ -35,37 +43,47 @@ function Mechanics() {
                         />
 
                         <div class="ms-2 c-details">
-                          <h6 class="mb-0">Mailchimp</h6>
-                          <span>1 days ago</span>
+                          <h6 class="mb-0">{mechanic.name}</h6>
+                          <span style={{ fontSize: "15px" }}>
+                            <strong>{mechanic.distance}</strong> from you
+                          </span>
                         </div>
                       </div>
                       <div class="badge">
-                        {" "}
-                        <span>Design</span>{" "}
+                        <span>
+                          <a
+                            href={`tel:${mechanic.phone_number}`}
+                            style={{ color: "green", fontSize: "20px" }}
+                          >
+                            <BiPhoneCall />{" "}
+                          </a>
+                        </span>
                       </div>
                     </div>
-                    <div class="mt-5">
-                      <h3 class="heading">
-                        Senior Product
-                        <br />
-                        Designer-Singapore
-                      </h3>
-                      <div class="mt-5">
-                        <div class="progress">
-                          <div
-                            class="progress-bar"
-                            role="progressbar"
-                            style={{ width: "50%" }}
-                            aria-valuenow="50"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                        <div class="mt-3">
-                          {" "}
-                          <span class="text1">
-                            32 Applied <span class="text2">of 50 capacity</span>
-                          </span>{" "}
+                    <div class="mt-2">
+                      <h3 class="heading">{mechanic.name}</h3>
+                      <span class="text1">{mechanic.description}</span>
+                      <div class="mt-2">
+                        <div
+                          class="d-flex flex-row justify-content-between"
+                          style={{ fontSize: "20px", color: "grey" }}
+                        >
+                          <div class="d-flex flex-column align-items-center">
+                            <BsCashCoin style={{ color: "green" }} />
+                            discounts
+                          </div>
+                          <div class="d-flex flex-column align-items-center">
+                            <GiTowTruck style={{ color: "green" }} />
+                            towing
+                          </div>
+                          <div class="d-flex flex-column align-items-center">
+                            <GiAutoRepair style={{ color: "green" }} />
+                            repairs
+                          </div>
+                          <div class="d-flex flex-column align-items-center">
+                            <FaOilCan style={{ color: "green" }} />
+                            oil change
+                          </div>
                         </div>
                       </div>
                     </div>
