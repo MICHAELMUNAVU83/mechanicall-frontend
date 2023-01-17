@@ -58,10 +58,7 @@ function Login() {
               <p class="line"></p>
             </div>
             <div class="d-flex justify-content-start">
-              <Link
-                to="/signup"
-                class="btn btn-primary btn-sm align-self-center"
-              >
+              <Link to="/" class="btn btn-primary btn-sm align-self-center">
                 Sign Up
               </Link>
             </div>

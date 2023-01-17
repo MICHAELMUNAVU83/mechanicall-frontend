@@ -8,6 +8,7 @@ import FuelStations from "./components/FuelStations";
 import Mechanics from "./components/Mechanics";
 import { UserContext } from "./context";
 import HomeScreen from "./components/HomeScreen";
+import Navbar from "./components/Navbar";
 
 function App() {
   const { storedToken, fetchProfile, name } = useContext(UserContext);
@@ -18,9 +19,9 @@ function App() {
 
   return (
     <div>
-      {name}
       {storedToken ? (
         <Router>
+          <Navbar storedToken={storedToken} name={name} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/fuelstations" element={<FuelStations />} />

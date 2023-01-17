@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context";
+
 function SignUp() {
   const {
     email,
@@ -11,6 +12,8 @@ function SignUp() {
     setUsername,
     signUpFunction,
   } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   return (
     <section className="vh-100" style={{ backgroundColor: "#FFFFFF" }}>
