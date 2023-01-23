@@ -10,10 +10,10 @@ import { UserContext } from "../context";
 function FuelStations() {
   const { countyName, showPosition } = useContext(UserContext);
   const [fuelStations, setFuelStations] = useState([]);
-  console.log(fuelStations);
+
   useEffect(() => {
     showPosition();
-    fetch("https://mekanik-backend.herokuapp.com/api/v1/fuel_stations", {
+    fetch("/api/v1/fuel_stations", {
       method: "GET",
       headers: {
         Accepts: "application/json",

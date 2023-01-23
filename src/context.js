@@ -13,7 +13,7 @@ export function UserProvider({ children }) {
   const [longitude, setLongitude] = useState("");
 
   const loginFunction = (e) => {
-    fetch("https://mekanik-backend.herokuapp.com/api/v1/login", {
+    fetch("/api/v1/login", {
       method: "POST",
       headers: {
         Accepts: "application/json",
@@ -43,7 +43,7 @@ export function UserProvider({ children }) {
   const signUpFunction = (e) => {
     e.preventDefault();
 
-    fetch("https://mekanik-backend.herokuapp.com/api/v1/users", {
+    fetch("/api/v1/users", {
       method: "POST",
       headers: {
         Accepts: "application/json",
@@ -71,7 +71,7 @@ export function UserProvider({ children }) {
   };
 
   const fetchProfile = async () => {
-    await fetch("https://mekanik-backend.herokuapp.com/api/v1/profile ", {
+    await fetch("/api/v1/profile ", {
       method: "GET",
       headers: {
         Accepts: "application/json",
