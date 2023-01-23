@@ -108,19 +108,6 @@ function Home() {
           <FullscreenControl container={document.querySelector("body")} />
         </Map>
       </div>
-
-      {/* Hello {name}
-      <button
-        onClick={() => {
-          localStorage.setItem("token", "");
-          setStoredToken("");
-        }}
-      >
-        Log out
-      </button>
-      You are in {countyName}
-      <Link to="/fuelstations">Fuel Stations</Link>
-      <Link to="/mechanics">Mechanics</Link> */}
     </div>
   );
 }

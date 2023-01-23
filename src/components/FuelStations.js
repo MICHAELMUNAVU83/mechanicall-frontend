@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from "react";
-import { IoIosBuild } from "react-icons/io";
 import { BsCashCoin } from "react-icons/bs";
 import { GiAutoRepair, GiTowTruck } from "react-icons/gi";
 import { FaOilCan } from "react-icons/fa";
@@ -14,7 +13,7 @@ function FuelStations() {
   console.log(fuelStations);
   useEffect(() => {
     showPosition();
-    fetch("/api/v1/fuel_stations", {
+    fetch("https://mekanik-backend.herokuapp.com/api/v1/fuel_stations", {
       method: "GET",
       headers: {
         Accepts: "application/json",

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../context";
 
 const Navbar = ({ storedToken }) => {
-  const { setStoredToken, fetchProfile, name, showPosition, countyName } =
-    useContext(UserContext);
+  const { setStoredToken, name } = useContext(UserContext);
 
   return (
     <div>
