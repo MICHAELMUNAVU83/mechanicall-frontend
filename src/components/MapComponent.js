@@ -6,7 +6,7 @@ import Map, {
   GeolocateControl,
   FullscreenControl,
 } from "react-map-gl";
-import { BiLocationPlus } from "react-icons/bi";
+import 'font-awesome/css/font-awesome.min.css';
 
 function MapComponent() {
   const [essentials, setEssentials] = useState([]);
@@ -17,6 +17,9 @@ function MapComponent() {
   }, []);
   return (
     <>
+   
+    
+  
       <Map
         style={{
           margin: "auto",
@@ -31,18 +34,28 @@ function MapComponent() {
           longitude: 37.013193,
           zoom: 10,
         }}
-        mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN} // This is the token we got from Mapbox
+        mapboxAccessToken={"pk.eyJ1IjoiYW5uZXRvdG9oIiwiYSI6ImNsYjB2cDl1dzFrOTQzcHFtOWdxcHBjbGgifQ.LADz9TYffPhRsjZ_O_hUHw"} // This is the token we got from Mapbox
         mapStyle="mapbox://styles/mapbox/streets-v11" // This is the style of the map
       >
         <NavigationControl showCompass={true} position="bottom-right" />
-        {essentials.map((restaurant) => (
+        {essentials.map((essential) => (
           <Marker
             color="red"
-            key={restaurant.id}
-            latitude={restaurant.latitude}
-            longitude={restaurant.longitude}
+            key={essential.id}
+            latitude={essential.latitude}
+            longitude={essential.longitude}
           >
-            <BiLocationPlus style={{ fontSize: "30px" }} />
+             
+            {/* gas station */}
+          
+          
+           {essential.name}
+
+          
+             
+
+             <i className={essential.icon} style={{ fontSize: "30px"}}></i>
+
           </Marker>
         ))}
 

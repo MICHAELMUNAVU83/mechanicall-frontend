@@ -1,6 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context";
+import {AiOutlineMail} from 'react-icons/ai'
+import {AiOutlineUser} from 'react-icons/ai'
+import {AiOutlineLock} from 'react-icons/ai'
+
+
 
 function SignUp() {
   const {
@@ -30,7 +35,7 @@ function SignUp() {
 
                     <form class="mx-1 mx-md-4">
                       <div class="d-flex flex-row align-items-center mb-4">
-                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <AiOutlineUser className="me-3 fa-fw" style={{fontSize:"20px"}}/>
                         <div class="form-outline flex-fill mb-0">
                           <label for="username">Username</label>
                           <input
@@ -43,7 +48,7 @@ function SignUp() {
                       </div>
 
                       <div class="d-flex flex-row align-items-center mb-4">
-                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <AiOutlineMail className="me-3 fa-fw" style={{fontSize:"20px"}}/>
                         <div class="form-outline flex-fill mb-0">
                           <label for="email">Email</label>
                           <input
@@ -56,7 +61,7 @@ function SignUp() {
                       </div>
 
                       <div class="d-flex flex-row align-items-center mb-4">
-                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <AiOutlineLock className="me-3 fa-fw" style={{fontSize:"20px"}}/>
                         <div class="form-outline flex-fill mb-0">
                           <label for="password">Password</label>
                           <input
