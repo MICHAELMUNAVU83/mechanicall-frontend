@@ -75,7 +75,7 @@ export function UserProvider({ children }) {
         localStorage.setItem("token", data.jwt);
         setStoredToken(data.jwt);
 
-        window.location.href = "/";
+        window.location.location = "/";
       });
 
     setUsername("");
