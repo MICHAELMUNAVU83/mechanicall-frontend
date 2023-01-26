@@ -1,4 +1,7 @@
 import React, { createContext, useState } from "react";
+import {  toast } from 'react-toastify';
+
+  import 'react-toastify/dist/ReactToastify.css';
 
 export const UserContext = createContext();
 
@@ -31,8 +34,18 @@ export function UserProvider({ children }) {
         if (data.jwt) {
           localStorage.setItem("token", data.jwt);
           setStoredToken(data.jwt);
+          window.location.href = "/";
         } else {
-          alert("Invalid credentials");
+          toast('INVALID CREDENTIALS!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
         }
       });
 

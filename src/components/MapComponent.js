@@ -7,11 +7,12 @@ import Map, {
   FullscreenControl,
 } from "react-map-gl";
 import 'font-awesome/css/font-awesome.min.css';
+import { Link } from "react-router-dom";
 
 function MapComponent() {
   const [essentials, setEssentials] = useState([]);
   useEffect(() => {
-    fetch("/api/v1/essentials")
+    fetch("https://mechanicall-backend.herokuapp.com/api/v1/essentials")
       .then((res) => res.json())
       .then((data) => setEssentials(data));
   }, []);
@@ -47,14 +48,14 @@ function MapComponent() {
           >
              
             {/* gas station */}
-          
-          
-           {essential.name}
 
+            <Link to={essential.route} style={{ color: "black" }} className="text-decoration-none">
+            {essential.name}
+              <i className={essential.icon} style={{ fontSize: "30px"}}></i>
+            </Link>
           
-             
-
-             <i className={essential.icon} style={{ fontSize: "30px"}}></i>
+          
+          
 
           </Marker>
         ))}

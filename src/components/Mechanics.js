@@ -19,7 +19,10 @@ function Mechanics() {
       },
     })
       .then((res) => res.json())
-      .then((data) => setMechanics(data));
+      .then((data) => {
+        setMechanics(data);
+       
+      });
   }, [showPosition]);
 
   return (

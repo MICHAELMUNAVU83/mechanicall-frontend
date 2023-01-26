@@ -1,14 +1,17 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { UserContext } from "../context";
 
 import "./Login.css";
+import { ToastContainer } from 'react-toastify';
+
+  import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const { loginFunction, username, setUsername, password, setPassword } =
     useContext(UserContext);
-  const navigate = useNavigate();
+
 
   return (
     <>
@@ -46,7 +49,7 @@ function Login() {
               <button
                 onClick={() => {
                   loginFunction();
-                  navigate("/");
+                  
                 }}
                 class="btn btn-primary btn-sm align-self-center"
               >
@@ -64,7 +67,9 @@ function Login() {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </div>
+      
     </>
   );
 }
