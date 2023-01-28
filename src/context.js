@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
-import {  toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
-  import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export const UserContext = createContext();
 
@@ -36,7 +36,7 @@ export function UserProvider({ children }) {
           setStoredToken(data.jwt);
           window.location.href = "/";
         } else {
-          toast('INVALID CREDENTIALS!', {
+          toast("INVALID CREDENTIALS!", {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -45,7 +45,7 @@ export function UserProvider({ children }) {
             draggable: true,
             progress: undefined,
             theme: "light",
-            });
+          });
         }
       });
 
@@ -74,8 +74,7 @@ export function UserProvider({ children }) {
       .then((data) => {
         localStorage.setItem("token", data.jwt);
         setStoredToken(data.jwt);
-
-        window.location.location = "/";
+        window.location.href = "/";
       });
 
     setUsername("");

@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context";
 
 const Navbar = ({ storedToken }) => {
   const { setStoredToken, name } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -46,6 +48,7 @@ const Navbar = ({ storedToken }) => {
                 <li class="nav-item">
                   <button
                     onClick={() => {
+                      navigate("/");
                       localStorage.setItem("token", "");
                       setStoredToken("");
                     }}

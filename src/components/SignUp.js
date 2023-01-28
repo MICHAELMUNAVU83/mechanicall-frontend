@@ -1,11 +1,9 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context";
-import {AiOutlineMail} from 'react-icons/ai'
-import {AiOutlineUser} from 'react-icons/ai'
-import {AiOutlineLock} from 'react-icons/ai'
-
-
+import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineLock } from "react-icons/ai";
 
 function SignUp() {
   const {
@@ -17,8 +15,6 @@ function SignUp() {
     setUsername,
     signUpFunction,
   } = useContext(UserContext);
-
-  
 
   return (
     <section className="vh-100" style={{ backgroundColor: "#FFFFFF" }}>
@@ -35,7 +31,10 @@ function SignUp() {
 
                     <form class="mx-1 mx-md-4">
                       <div class="d-flex flex-row align-items-center mb-4">
-                      <AiOutlineUser className="me-3 fa-fw" style={{fontSize:"20px"}}/>
+                        <AiOutlineUser
+                          className="me-3 fa-fw"
+                          style={{ fontSize: "20px" }}
+                        />
                         <div class="form-outline flex-fill mb-0">
                           <label for="username">Username</label>
                           <input
@@ -48,7 +47,10 @@ function SignUp() {
                       </div>
 
                       <div class="d-flex flex-row align-items-center mb-4">
-                      <AiOutlineMail className="me-3 fa-fw" style={{fontSize:"20px"}}/>
+                        <AiOutlineMail
+                          className="me-3 fa-fw"
+                          style={{ fontSize: "20px" }}
+                        />
                         <div class="form-outline flex-fill mb-0">
                           <label for="email">Email</label>
                           <input
@@ -61,7 +63,10 @@ function SignUp() {
                       </div>
 
                       <div class="d-flex flex-row align-items-center mb-4">
-                      <AiOutlineLock className="me-3 fa-fw" style={{fontSize:"20px"}}/>
+                        <AiOutlineLock
+                          className="me-3 fa-fw"
+                          style={{ fontSize: "20px" }}
+                        />
                         <div class="form-outline flex-fill mb-0">
                           <label for="password">Password</label>
                           <input
