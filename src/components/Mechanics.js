@@ -11,7 +11,7 @@ function Mechanics() {
   const [mechanics, setMechanics] = useState([]);
   useEffect(() => {
     showPosition();
-    fetch("https://mechanicall-backend.herokuapp.com/api/v1/mechanics", {
+    fetch("https://mechanicall-backend-api.herokuapp.com/api/v1/mechanics", {
       method: "GET",
       headers: {
         Accepts: "application/json",
@@ -21,7 +21,6 @@ function Mechanics() {
       .then((res) => res.json())
       .then((data) => {
         setMechanics(data);
-       
       });
   }, [showPosition]);
 

@@ -6,21 +6,18 @@ import Map, {
   GeolocateControl,
   FullscreenControl,
 } from "react-map-gl";
-import 'font-awesome/css/font-awesome.min.css';
+import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 
 function MapComponent() {
   const [essentials, setEssentials] = useState([]);
   useEffect(() => {
-    fetch("https://mechanicall-backend.herokuapp.com/api/v1/essentials")
+    fetch("https://mechanicall-backend-api.herokuapp.com/api/v1/essentials")
       .then((res) => res.json())
       .then((data) => setEssentials(data));
   }, []);
   return (
     <>
-   
-    
-  
       <Map
         style={{
           margin: "auto",
@@ -35,7 +32,9 @@ function MapComponent() {
           longitude: 37.013193,
           zoom: 10,
         }}
-        mapboxAccessToken={"pk.eyJ1IjoiYW5uZXRvdG9oIiwiYSI6ImNsYjB2cDl1dzFrOTQzcHFtOWdxcHBjbGgifQ.LADz9TYffPhRsjZ_O_hUHw"} // This is the token we got from Mapbox
+        mapboxAccessToken={
+          "pk.eyJ1IjoiYW5uZXRvdG9oIiwiYSI6ImNsYjB2cDl1dzFrOTQzcHFtOWdxcHBjbGgifQ.LADz9TYffPhRsjZ_O_hUHw"
+        } // This is the token we got from Mapbox
         mapStyle="mapbox://styles/mapbox/streets-v11" // This is the style of the map
       >
         <NavigationControl showCompass={true} position="bottom-right" />
@@ -46,17 +45,16 @@ function MapComponent() {
             latitude={essential.latitude}
             longitude={essential.longitude}
           >
-             
             {/* gas station */}
 
-            <Link to={essential.route} style={{ color: "black" }} className="text-decoration-none">
-            {essential.name}
-              <i className={essential.icon} style={{ fontSize: "30px"}}></i>
+            <Link
+              to={essential.route}
+              style={{ color: "black" }}
+              className="text-decoration-none"
+            >
+              {essential.name}
+              <i className={essential.icon} style={{ fontSize: "30px" }}></i>
             </Link>
-          
-          
-          
-
           </Marker>
         ))}
 

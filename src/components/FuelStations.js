@@ -13,13 +13,16 @@ function FuelStations() {
 
   useEffect(() => {
     showPosition();
-    fetch("https://mechanicall-backend.herokuapp.com/api/v1/fuel_stations", {
-      method: "GET",
-      headers: {
-        Accepts: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      "https://mechanicall-backend-api.herokuapp.com/api/v1/fuel_stations",
+      {
+        method: "GET",
+        headers: {
+          Accepts: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setFuelStations(data));
   }, [showPosition]);

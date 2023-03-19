@@ -16,7 +16,7 @@ export function UserProvider({ children }) {
   const [longitude, setLongitude] = useState("");
 
   const loginFunction = (e) => {
-    fetch("https://mechanicall-backend.herokuapp.com/api/v1/login", {
+    fetch("https://mechanicall-backend-api.herokuapp.com/api/v1/login", {
       method: "POST",
       headers: {
         Accepts: "application/json",
@@ -56,7 +56,7 @@ export function UserProvider({ children }) {
   const signUpFunction = (e) => {
     e.preventDefault();
 
-    fetch("https://mechanicall-backend.herokuapp.com/api/v1/users", {
+    fetch("https://mechanicall-backend-api.herokuapp.com/api/v1/users", {
       method: "POST",
       headers: {
         Accepts: "application/json",
@@ -83,14 +83,17 @@ export function UserProvider({ children }) {
   };
 
   const fetchProfile = async () => {
-    await fetch("https://mechanicall-backend.herokuapp.com/api/v1/profile ", {
-      method: "GET",
-      headers: {
-        Accepts: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
+    await fetch(
+      "https://mechanicall-backend-api.herokuapp.com/api/v1/profile ",
+      {
+        method: "GET",
+        headers: {
+          Accepts: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setName(data.user.username));
   };
