@@ -2,7 +2,7 @@
 MECHANICALL - CALL YOUR MECHANIC ANYWHERE
 
 ## Demo link:
-Access the live site  [here](https://greenr-frontend.vercel.app/)
+Access the live site  [here](https://mechanicall-frontend.vercel.app/)
 
 ## Table of Content:
 
@@ -23,10 +23,11 @@ Access the live site  [here](https://greenr-frontend.vercel.app/)
             
 
 ## Screenshots
-![2](https://user-images.githubusercontent.com/86654131/226245953-526b30b8-5551-4983-b765-aa4c480b46d6.png)
+
+![1](https://user-images.githubusercontent.com/86654131/226250572-f6c51169-be0e-4b5a-84bd-2fc57b6b3d56.png)
 
 
-![1](https://user-images.githubusercontent.com/86654131/226245955-587b7068-95b5-4649-9edf-5bf9d9cd1139.png)
+![2](https://user-images.githubusercontent.com/86654131/226250578-3c4a7b38-e8a5-4c9c-b2d0-147122ce7038.png)
 
 
 
